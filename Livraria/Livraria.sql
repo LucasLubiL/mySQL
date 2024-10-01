@@ -9,6 +9,7 @@ descricao varchar(45) not null,
 endereco varchar(45)
 
 );
+
 alter table editora
 change column descricao nome varchar(45);
 
@@ -24,6 +25,15 @@ editora_cod_editora int not null,
 foreign key(editora_cod_editora) references editora(cod_editora)
 
 );
+
+alter table livro
+change column isbn isbn varchar(45) unique not null;
+alter table livro
+modify column preco float default 10;
+alter table livro 
+drop column num_edicao;
+alter table livro
+add column edicao int;
 
 create table autor(
 
@@ -44,6 +54,23 @@ foreign key(id_autor) references autor(cod_autor),
 foreign key(id_livro) references livro(cod_livro)
 
 );
+
+create table grupo(
+
+id_grupo int auto_increment primary key,
+nome varchar(45)
+
+); 
+
+alter table editora
+add column id_grupo int, add constraint fk_grupo foreign key(id_grupo) references grupo(id_grupo) on delete set null on update cascade;
+
+
+
+
+
+
+
 
 
 
