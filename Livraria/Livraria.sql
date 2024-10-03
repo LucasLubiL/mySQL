@@ -10,8 +10,9 @@ endereco varchar(45)
 
 );
 
-alter table editora
+alter table editora /*rename column descricao to nome*/
 change column descricao nome varchar(45);
+
 
 create table livro(
 
@@ -27,9 +28,9 @@ foreign key(editora_cod_editora) references editora(cod_editora)
 );
 
 alter table livro
-change column isbn isbn varchar(45) unique not null;
+change column isbn isbn varchar(45) unique not null; /*add constraint unique (isbn),*/
 alter table livro
-modify column preco float default 10;
+modify column preco float default 10;  /*alter preco set default 10.0,*/
 alter table livro 
 drop column num_edicao;
 alter table livro
@@ -43,13 +44,14 @@ sexo char,
 data_nascimento date not null
 
 );
-alter table autor
+alter table autor /*change troca o nome e o tipo, o rename troca o nome, e o modify troca o tipo*/
 change column sexo sexo varchar(1);
 
 create table livro_autor(
 
 id_autor int not null,
 id_livro int not null,
+primary key (id_autor,id_livro),
 foreign key(id_autor) references autor(cod_autor),
 foreign key(id_livro) references livro(cod_livro)
 
@@ -63,7 +65,7 @@ nome varchar(45)
 ); 
 
 alter table editora
-add column id_grupo int, add constraint fk_grupo foreign key(id_grupo) references grupo(id_grupo) on delete set null on update cascade;
+add column id_grupo int, add constraint foreign key(id_grupo) references grupo(id_grupo) on delete set null on update cascade;
 
 
 
