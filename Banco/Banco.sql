@@ -29,6 +29,7 @@ insert into agencia (numero_agencia , endereco , cod_banco) values(3153 , 'Av. M
 /*    3    update agencia
               set numero_agencia = '6342'
               where numero_agencia = '0562';*/
+/*    6    insert into agencia (numero-agencia , endereco , cod_banco) values(1333 , 'Rua João José da Silva, 486' , 1);*/
     
 create table conta(
 
@@ -41,6 +42,9 @@ create table conta(
 );
 insert into conta (num_conta , saldo , tipo_conta , num_agencia) values('86340-2' , 763.05 , '2' , 3153);
 insert into conta (num_conta , saldo , tipo_conta , num_agencia) values('23584-7' , 3879.12 , '1' , 0562);
+/*     5     update conta
+                set saldo = saldo * 0.10
+                where num_conta = '23584-7';*/
 
 create table cliente(
 
