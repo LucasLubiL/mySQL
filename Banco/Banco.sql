@@ -50,6 +50,10 @@ create table cliente(
 insert into cliente (cpf , nome , endereco , sexo ) values('111.222.333-44' , 'Jennifer B Souza' , 'Rua Cuiabá' , 'F');
 insert into cliente (cpf , nome , endereco , sexo ) values('666.777.888-99' , 'Caetano K Lima' , 'Rua Ivinhema, 879' , 'M');
 insert into cliente (cpf , nome , endereco , sexo ) values('555.444.333-22' , 'Silvia Macedo' , 'Rua Estados Unidos, 735' , 'F');
+/*    1     alter table cliente add column email varchar(200);*/
+/*    2     select cpf, endereco
+               from cliente
+               where nome = 'c%'*/
 
 DELETE FROM `banco`.`cliente` WHERE (`cpf` = '666.777.888.99');
 
