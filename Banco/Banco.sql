@@ -26,7 +26,10 @@ create table agencia(
 );
 insert into agencia (numero_agencia , endereco , cod_banco) values(0562 , 'Rua Joaquim Teixeira Alves, 1555' , 1);
 insert into agencia (numero_agencia , endereco , cod_banco) values(3153 , 'Av. Marcelino Pires, 1960' , 2);
-
+/*    3    update agencia
+              set numero_agencia = '6342'
+              where numero_agencia = '0562';*/
+    
 create table conta(
 
     num_conta varchar(7) primary key not null,
@@ -53,7 +56,10 @@ insert into cliente (cpf , nome , endereco , sexo ) values('555.444.333-22' , 'S
 /*    1     alter table cliente add column email varchar(200);*/
 /*    2     select cpf, endereco
                from cliente
-               where nome = 'c%'*/
+               where nome = 'c%';*/
+/*    4     update cliente
+               set email = 'caetanolima@gmail.com'
+               where nome = 'Caetano K Lima';*/
 
 DELETE FROM `banco`.`cliente` WHERE (`cpf` = '666.777.888.99');
 
