@@ -30,6 +30,10 @@ insert into agencia (numero_agencia , endereco , cod_banco) values(3153 , 'Av. M
               set numero_agencia = '6342'
               where numero_agencia = '0562';*/
 /*    6    insert into agencia (numero-agencia , endereco , cod_banco) values(1333 , 'Rua João José da Silva, 486' , 1);*/
+
+/*    7    select numero_agencia, endereco
+              from agencia
+              where cod_banco = 1;*/
     
 create table conta(
 
@@ -45,6 +49,8 @@ insert into conta (num_conta , saldo , tipo_conta , num_agencia) values('23584-7
 /*     5     update conta
                 set saldo = saldo * 0.10
                 where num_conta = '23584-7';*/
+
+/*     9     DELETE FROM `banco`.`conta` WHERE (`num-conta` = '86340-2');*/
 
 create table cliente(
 
@@ -64,6 +70,10 @@ insert into cliente (cpf , nome , endereco , sexo ) values('555.444.333-22' , 'S
 /*    4     update cliente
                set email = 'caetanolima@gmail.com'
                where nome = 'Caetano K Lima';*/
+
+/*    8     select *
+               from cliente
+               where sexo = 'M';*/
 
 DELETE FROM `banco`.`cliente` WHERE (`cpf` = '666.777.888.99');
 
