@@ -114,3 +114,18 @@ select id_aluno from matricula
 join matricula_disciplina ON matricula.id_matricula=matricula_disciplina.id_matricula
 join disciplina ON disciplina.id_disciplina=matricula_disciplina.id_disciplina
 where nome = 'Programação Orientada a Objetos' order by nota asc limit 1;
+
+/*6*/
+select id_aluno from matricula
+join curso ON matricula.id_curso=curso.id_curso
+where carga_horaria > 2400;
+
+/*7*/
+select aluno.nome, curso.nome , carga_horaria from aluno
+join matricula ON aluno.id_aluno = matricula.id_aluno
+join curso ON matricula.id_curso=curso.id_curso;
+
+/*8*/
+update curso
+   set carga_horaria = 300
+   where nome = "Administração";
