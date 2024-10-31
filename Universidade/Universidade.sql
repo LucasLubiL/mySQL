@@ -93,7 +93,7 @@ VALUES
 select nome,cpf,data_nascimento from aluno;
 
 /*2*/
-select nome,cpf,sexo from aluno where data_nascimento > 1990;
+select nome,cpf,sexo from aluno where data_nascimento > "1990-12-31";
 
 /*3*/
 select nome from curso order by carga_horaria desc limit 1;
