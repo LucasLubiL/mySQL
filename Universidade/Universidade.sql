@@ -94,9 +94,11 @@ select nome,cpf,data_nascimento from aluno;
 
 /*2*/
 select nome,cpf,sexo from aluno where data_nascimento > "1990-12-31";
+-- where year(data_nascimento) > 1990;
 
 /*3*/
 select nome from curso order by carga_horaria desc limit 1;
+-- select nome from curso where carga_horaria = (select max(carga_horaria) from curso); 
 
 /*4*/
 INSERT INTO disciplina (nome, carga_horaria) values ('Poo', 15);
