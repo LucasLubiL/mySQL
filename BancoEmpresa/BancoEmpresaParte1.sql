@@ -189,6 +189,7 @@ where id_superv is NULL;
 
 -- 8
 select funcionario.nome_func , departamento.nome_depto , projeto.nome_proj from funcionario
+-- join trabalha ON trabalha.id_func = funcionario.id_func
 join departamento ON funcionario.id_depto = departamento.id_depto
 join projeto ON departamento.id_depto = projeto.id_depto
 order by departamento.nome_depto , projeto.nome_proj;
