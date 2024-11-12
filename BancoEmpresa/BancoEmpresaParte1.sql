@@ -202,6 +202,29 @@ select SUM(salario) as soma_salario , AVG(salario) as media , MAX(salario) as ma
 JOIN departamento ON funcionario.id_depto = departamento.id_depto
 where departamento.nome_depto like '%Pesquisa%';
 
+-- 11
+select f.nome_func from funcionario f
+left join dependente d ON f.id_func = d.id_func
+where d.id_func is NULL;
 
+-- 12
+select p.id_proj, d.id_depto, d.nome_depto, f.nome_func, f.endereco, f.data_nasc from projeto p
+join departamento d ON p.id_depto = d.id_depto
+join funcionario f ON d.id_gerente = f.id_func
+where p.localizacao like "%Luxemburgo%";
 
+-- 13
+select p.nome_proj, p.localizacao from projeto p
+left join trabalha t ON p.id_proj = t.id_proj
+left join funcionario f ON t.id_func = f.id_func
+where t.id_func is null;
 
+-- 14
+select f.nome_func from trabalha t
+right join funcionario f ON f.id_func = t.id_func
+left join dependente d ON d.id_func = f.id_func
+where d.id_func is NULL and t.id_func is NULL;
+
+-- 15
+select empregado.nome_func AS Nome_Empregado, supervisor.nome_func AS Nome_Supervisor from funcionario AS Empregado
+join Funcionario supervisor ON empregado.id_superv = supervisor.id_func;
