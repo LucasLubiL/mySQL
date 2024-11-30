@@ -123,7 +123,7 @@ DELIMITER //
           values(
              NEW.saldo,
              NEW.tipo_conta,
-			 NEW.num_agencia,
+	     NEW.num_agencia,
              OLD.saldo,
              OLD.tipo_conta,
              OLD.num_agencia
