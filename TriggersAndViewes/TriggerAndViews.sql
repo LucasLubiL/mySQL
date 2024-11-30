@@ -112,6 +112,7 @@ create table log_registro(
     tipo_conta_old INT,
     num_agencia_old INT
 );
+Alter table log_registro ADD column id int auto_increment primary key;
 
 DELIMITER //
    Create Trigger update_conta
