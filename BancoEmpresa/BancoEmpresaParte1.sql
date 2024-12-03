@@ -228,3 +228,7 @@ where d.id_func is NULL and t.id_func is NULL;
 -- 15
 select empregado.nome_func AS Nome_Empregado, supervisor.nome_func AS Nome_Supervisor from funcionario AS Empregado
 join Funcionario supervisor ON empregado.id_superv = supervisor.id_func;
+
+
+DELIMITER //
+   CREATE PROCEDURE apli_taxa(IN taxa INT , IN id INT)
