@@ -176,31 +176,27 @@ CREATE TABLE hora_extra(
 
 DELIMITER //
 CREATE TRIGGER inserir_trabalho
-after insert ON trabalha
+AFTER INSERT ON trabalha
    FOR EACH ROW
-      DECLARE horas hour default 0.0;
-      CALL sum_hora(new.id_func,horas);
-      IF num_hora > 40 THEN
-             set hora = num_hora - 40;
-             where id = id_func;
-	   END IF;
    BEGIN
-       
+	  DECLARE hora_ex float default 0.0;
+      CALL sum_hora(new.id_func,hora_ex);
+      IF hora_ex > 40 THEN
+             insert into hora_extra(id_func,horas) values(new.id_func, hora_ex - 40);
+	   END IF ;
    END //
 DELIMITER ;
 
+drop trigger inserir_trabalho;
+drop procedure sum_hora;
+
 DELIMITER //
-CREATE PROCEDURE sum_hora(IN id_func INT, OUT horas)
+CREATE PROCEDURE sum_hora(IN h_id_func INT, OUT hora_ex float)
     BEGIN 
-       select SUM(num_hora) from trabalha
-       
+       select SUM(num_horas) INTO hora_ex
+       from trabalha
+       where id_func = h_id_func;
     END // 
 DELIMITER ;
 
-
-
-
-
-
-
-   
+INSERT INTO trabalha (id_func, id_proj, num_horas) values (1,3,50);
