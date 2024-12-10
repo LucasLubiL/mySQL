@@ -179,11 +179,11 @@ CREATE TRIGGER inserir_trabalho
 AFTER INSERT ON trabalha
    FOR EACH ROW
    BEGIN
-	  DECLARE hora_ex float default 0.0;
+      DECLARE hora_ex float default 0.0;
       CALL sum_hora(new.id_func,hora_ex);
       IF hora_ex > 40 THEN
-             insert into hora_extra(id_func,horas) values(new.id_func, hora_ex - 40);
-	   END IF ;
+         insert into hora_extra(id_func,horas) values(new.id_func, hora_ex - 40);
+      END IF ;
    END //
 DELIMITER ;
 
